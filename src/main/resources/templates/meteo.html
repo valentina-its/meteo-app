@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meteo Grafico</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>🌦️ Meteo per città</h1>
+
+    <form id="form">
+      <label for="city">Scegli una città:</label>
+      <select id="city">
+        <option value="45.07|7.69">Torino</option>
+        <option value="45.46|9.19">Milano</option>
+        <option value="41.89|12.48">Roma</option>
+        <option value="40.85|14.26">Napoli</option>
+        <option value="44.49|11.34">Bologna</option>
+      </select>
+
+      <button type="submit">Mostra grafico</button>
+    </form>
+
+    <div id="grafico">
+      <img id="weatherImg" alt="Grafico temperatura oraria" width="800" height="400">
+    </div>
+  </div>
+
+  <script src="/js/meteo.js"></script>
+</body>
+
+</html>
