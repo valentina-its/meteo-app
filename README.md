@@ -55,7 +55,6 @@ Assicurati di avere:
 
 1. ✅ **[Java 17+](https://adoptium.net/temurin/releases/?version=17)**  
 2. ✅ **[Docker Desktop](https://www.docker.com/products/docker-desktop)**  
-3. (Facoltativo) **Git** per clonare il progetto
 
 ---
 
