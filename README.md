@@ -41,78 +41,88 @@ Una web app meteo semplice, elegante e containerizzata, costruita con **Spring B
 
 ---
 
-## 🧑‍🦯 Guida passo-passo per usare l'app Meteo (anche se non sei uno sviluppatore)
+## 🚦 Guida passo-passo per avviare l’app Meteo su un altro PC
 
-Questa sezione è pensata per chi vuole **usare l'app meteo in locale** senza conoscere nulla di programmazione, Java o Docker.
+### 1. Scarica il progetto
 
-> Segui questi passaggi uno alla volta e sarai operativa in pochi minuti 🎯
-
----
-
-### 🔧 Cosa ti serve installato sul PC
-
-Assicurati di avere:
-
-1. ✅ **[Java 17+](https://adoptium.net/temurin/releases/?version=17)**  
-2. ✅ **[Docker Desktop](https://www.docker.com/products/docker-desktop)**  
-
----
-
-### 📦 1. Scarica il progetto
-
-Se hai Git:
-
+**Con Git:**
 ```bash
-git clone https://github.com/valentina-its/meteo-app.git
+git clone https://github.com/tuo-utente/meteo-app.git
 ```
 ```bash
 cd meteo-app
 ```
-Altrimenti scarica il progetto come ZIP da GitHub e estrailo dove vuoi.
+**Oppure:**  
+Scarica il progetto come ZIP da GitHub, estrailo in una cartella a piacere.
 
-## 🔨 2. Compila il progetto
+---
 
-Apri il terminale (o PowerShell su Windows), entra nella cartella del progetto e scrivi:
+### 2. (Facoltativo) Compila il progetto Java
 
+Se vuoi ricostruire il jar:
+
+**Su Windows:**
+```bash
+mvnw.cmd clean package -DskipTests
+```
+**Su Mac/Linux:**
 ```bash
 ./mvnw clean package -DskipTests
 ```
 
-Questo comando crea il file .jar pronto per essere messo nel contenitore Docker.
+---
 
-## 🐳 3. Crea l’immagine Docker
+### 3. Avvia l’applicazione con Docker Compose
+
+Assicurati che **Docker Desktop** sia avviato.
+
+Poi, nella cartella del progetto, esegui:
 
 ```bash
-docker build -t meteo-app .
+docker-compose up --build
 ```
 
-🧊 Docker userà il Dockerfile incluso per costruire l’ambiente completo.
+- Questo comando costruisce l’immagine Docker e avvia il container.
+- La porta 8080 del tuo PC sarà collegata all’applicazione.
 
-## ♻️ 4. (Facoltativo) Rimuovi un vecchio container
+---
 
-Se l’hai già avviato in passato:
+### 4. Apri l’applicazione nel browser
 
-```bash
-docker rm -f meteo
+Vai su:
 ```
-
-🧽 Così eviti errori tipo “il container esiste già”.
-
-## 🚀 5. Avvia l’app
-```bash
-docker run -p 8080:8080 --name meteo meteo-app
-```
-
-Lascia il terminale aperto: l’app è attiva!
-
-## 🌐 6. Apri l'applicazione
-
-Vai nel browser all’indirizzo:
-```bash
 http://localhost:8080
 ```
-
 Vedrai:
 - Un menu a tendina con le città (Torino, Milano, ecc)
 - Un bottone per “Mostra grafico”
 - Un grafico meteo aggiornato in tempo reale 📈
+
+---
+
+## 🛑 Come fermare l’app
+
+Nel terminale dove hai lanciato Docker Compose, premi `CTRL+C`.  
+Per rimuovere i container:
+```bash
+docker-compose down
+```
+
+---
+
+## 🔎 File principali del progetto
+
+- [MeteoController.java](src/main/java/com/vale/meteo/controller/MeteoController.java): gestisce le richieste HTTP e restituisce dati/grafici.
+- [ExternalApiServiceImpl.java](src/main/java/com/vale/meteo/service/ExternalApiServiceImpl.java): si occupa delle chiamate all’API Open-Meteo.
+- [meteo.html](src/main/resources/templates/meteo.html): interfaccia utente web.
+- [application.properties](src/main/resources/application.properties): configurazione dell’API e delle impostazioni dell’app.
+- [docker-compose.yml](docker-compose.yml): avvio semplificato con Docker Compose.
+
+---
+
+## ℹ️ Problemi comuni
+
+- **Porta 8080 occupata:** chiudi altri programmi che la usano o modifica la porta in `docker-compose.yml`.
+- **Permessi Docker/Maven:** su Windows esegui il terminale come amministratore.
+- **Errore “jar mancante”:** assicurati che la cartella `target/` contenga il file `.jar` (compila con Maven se serve).
+
