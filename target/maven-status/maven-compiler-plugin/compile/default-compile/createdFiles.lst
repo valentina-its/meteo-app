@@ -1,0 +1,8 @@
+com\vale\meteo\controller\MeteoController.class
+com\vale\meteo\config\MeteoApiProperties.class
+com\vale\meteo\MeteoApplication.class
+com\vale\meteo\service\ExternalApiServiceImpl.class
+com\vale\meteo\config\WebClientConfig.class
+com\vale\meteo\service\ExternalApiService.class
+com\vale\meteo\service\ExternalApiServiceImpl$1.class
+com\vale\meteo\model\WeatherResponse.class
