@@ -64,7 +64,7 @@ Assicurati di avere:
 Se hai Git:
 
 ```bash
-git clone https://github.com/tuo-utente/meteo-app.git
+git clone https://github.com/valentina-its/meteo-app.git
 cd meteo-app
 ```
 Altrimenti scarica il progetto come ZIP da GitHub e estrailo dove vuoi.
