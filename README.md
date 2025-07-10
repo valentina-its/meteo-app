@@ -79,11 +79,14 @@ Assicurati che **Docker Desktop** sia avviato.
 Poi, nella cartella del progetto, esegui:
 
 ```bash
-docker-compose up --build
+docker build -t meteo-app:multi .
+```
+```bash
+docker run -p 8080:8080 meteo-app:multi
 ```
 
-- Questo comando costruisce l’immagine Docker e avvia il container.
-- La porta 8080 del tuo PC sarà collegata all’applicazione.
+- Il primo comando costruisce l’immagine Docker ottimizzata (multi-stage).
+- Il secondo comando avvia il container e collega la porta 8080 del tuo PC all’applicazione.
 
 ---
 
@@ -102,10 +105,18 @@ Vedrai:
 
 ## 🛑 Come fermare l’app
 
-Nel terminale dove hai lanciato Docker Compose, premi `CTRL+C`.  
-Per rimuovere i container:
+Nel terminale dove hai lanciato Docker, premi `CTRL+C`.  
+Per rimuovere il container (opzionale):
+
 ```bash
-docker-compose down
+docker ps   # per vedere l'ID del container
+```
+
+```bash
+docker stop <container_id>
+```
+```bash
+docker rm <container_id>
 ```
 
 ---
@@ -125,4 +136,3 @@ docker-compose down
 - **Porta 8080 occupata:** chiudi altri programmi che la usano o modifica la porta in `docker-compose.yml`.
 - **Permessi Docker/Maven:** su Windows esegui il terminale come amministratore.
 - **Errore “jar mancante”:** assicurati che la cartella `target/` contenga il file `.jar` (compila con Maven se serve).
-
