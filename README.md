@@ -57,22 +57,7 @@ Scarica il progetto come ZIP da GitHub, estrailo in una cartella a piacere.
 
 ---
 
-### 2. (Facoltativo) Compila il progetto Java
-
-Se vuoi ricostruire il jar:
-
-**Su Windows:**
-```bash
-mvnw.cmd clean package -DskipTests
-```
-**Su Mac/Linux:**
-```bash
-./mvnw clean package -DskipTests
-```
-
----
-
-### 3. Avvia l’applicazione con Docker Compose
+### 2. Avvia l’applicazione con Docker Compose
 
 Assicurati che **Docker Desktop** sia avviato.
 
@@ -90,7 +75,7 @@ docker run -p 8080:8080 meteo-app:multi
 
 ---
 
-### 4. Apri l’applicazione nel browser
+### 3. Apri l’applicazione nel browser
 
 Vai su:
 ```
