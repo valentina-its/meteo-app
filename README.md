@@ -78,9 +78,8 @@ docker run -p 8080:8080 meteo-app:multi
 ### 3. Apri l’applicazione nel browser
 
 Vai su:
-```
-http://localhost:8080
-```
+[http://localhost:8080](http://localhost:8080)
+
 Vedrai:
 - Un menu a tendina con le città (Torino, Milano, ecc)
 - Un bottone per “Mostra grafico”
