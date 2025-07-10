@@ -108,13 +108,15 @@ Vedrai:
 Nel terminale dove hai lanciato Docker, premi `CTRL+C`.  
 Per rimuovere il container (opzionale):
 
+Prima si guarda l'ID del container:
 ```bash
-docker ps   # per vedere l'ID del container
+docker ps   
 ```
-
+dopo di che fermi il container:
 ```bash
 docker stop <container_id>
 ```
+e infine lo rimuovi:
 ```bash
 docker rm <container_id>
 ```
